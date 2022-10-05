@@ -3,8 +3,10 @@ class Solution {
         int n = s.length(),
         result = 0;
         while(n > 0){
+        
             //removing the space character from the end
-            if(s.charAt(--n) != ' ') 
+           
+           if(s.charAt(--n) != ' ') 
                 result++;
             else if
                 (result > 0) return result;
@@ -14,4 +16,3 @@ class Solution {
 }
 
 
-Other possible way :
