@@ -24,3 +24,11 @@ class Solution {
         return leftSymbols.isEmpty();
     }
 }
+
+
+Time Complexity
+
+We are traversing the string once, hence the time complexity will be O(n).
+Space Complexity
+
+We are using Stack to store characters of the string, hence the space complexity will be O(n).
