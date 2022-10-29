@@ -1,0 +1,38 @@
+class Solution {
+    public String addBinary(String a, String b) {
+          // Resultant String
+        StringBuilder result = new StringBuilder();
+        // Indices for a and b
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        // Carry
+        int carry = 0;
+        while (i >= 0 || j >= 0) {
+            // Sum of two bits
+            int sum = carry;
+            if (i >= 0) {
+                sum += a.charAt(i--) - '0';
+            }
+            if (j >= 0) {
+                sum += b.charAt(j--) - '0';
+            }
+            // Add the bit to the result
+            result.insert(0, sum % 2);
+            // Modify carry
+            carry = sum / 2;
+        }
+        // Final check if carry exists
+        if (carry > 0) {
+            result.insert(0, 1);
+        }
+        return result.toString();
+    }
+}
+
+
+    Keep a variable carry.
+    Scan the strings from right to left.
+    Calculate sum by adding the two bits represented by the characters and add carry to it.
+    Take the sum modulo 2 (sum % 2) (because it's binary) and add it in the front of the existing result string.
+    Update the carry by taking sum / 2 for the next iteration.
+    Check if the value of the carry is more than zero after the last iteration and if exists, add it to the front of the result.
