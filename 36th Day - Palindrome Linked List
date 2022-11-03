@@ -1,0 +1,31 @@
+public class Solution {
+    private ListNode left = null;
+    public boolean isPalindrome(ListNode head) {
+        
+        if (head == null || head.next == null) {
+            return true;
+        }
+        left = head;
+        return isP(head);
+    }
+    private boolean isP(ListNode right) {
+        
+        if (right == null) {
+            
+            return true;
+        }
+        if (!isP(right.next)) {
+            
+            return false;
+        }
+        boolean result = left.val == right.val;
+        left = left.next;
+        return result;
+    }
+}
+
+Given the limitation O(n) time and O(1) space, it makes things a little harder. Because it’s a singly linked list, so we can do it easily by reverse the list. 
+But we cannot reverse the whole list because we need to compare. So we just need to reverse the second half and compare it in order with the first half.
+Note that for 2->3, second half should start with 3 while for 2->3->4->6->5, second half should start with 6, 
+when comparing, we only care about 2->3 and 5->6(reversed second half), we don’t need to care about 4.
+To find the half of the singly list, we will need our old friend slow and fast pointer.
