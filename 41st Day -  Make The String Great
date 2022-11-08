@@ -1,0 +1,18 @@
+We will implement the same algorithm in approach 1 using recursive method.
+The trick is that each time a recursive function calls itself, it reduces the given problem into subproblems. The recursion call continues until it reaches a point where the 
+subproblem can be solved without further recursion.
+In this problem, once we find a pair that should be deleted, we are actually reducing s into a new string s' which is 2 characters smaller. Then the function calls itself 
+for this smaller subproblem. When we can't find a pair for s, we have reached the base case where the problem can be solved by just returning s without further recursion!
+
+class Solution {
+    public String makeGood(String s) {
+  
+        for (int i = 0; i < s.length() - 1; ++i) {
+            if (Math.abs(s.charAt(i) - s.charAt(i + 1)) == 32)
+                return makeGood(s.substring(0, i) + s.substring(i + 2));
+        }
+
+    
+        return s;
+    }
+}
