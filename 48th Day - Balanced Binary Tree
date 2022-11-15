@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        
+        if(root == null) return true;
+        
+        int left = getHeight(root.left);
+        int right = getHeight(root.right);
+        
+        if(Math.abs(left - right) > 1) 
+            
+            return false;
+        
+        else return isBalanced(root.left) && isBalanced(root.right);
+    }
+    private int getHeight(TreeNode node){
+        
+        if(node == null) return 0;
+        return Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+    }
+}
+
+    Find the height of each subtree, if the difference between the left subtree and the right subtree is more than 1 then return -1 else return the height of the subtree.
+    If the value returned is -1, then return false else return true .
+    
+Time Complexity: O(n)
+Space Complexity: O(n)
+
