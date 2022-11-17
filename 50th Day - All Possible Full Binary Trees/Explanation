@@ -1,0 +1,17 @@
+A full binary tree is a binary tree where each node has exactly 0 or 2 children.
+Return a list of all possible full binary trees with N nodes. Each element of the answer is the root node of one possible tree.
+Each node of each tree in the answer must have node.val = 0.
+
+You may return the final list of trees in any order.
+(Since when n=2, 4, or any even numbers, it is impossible for us to create a full binary tree.)
+
+From the above graph, we can see that there’s only one and only possible tree when N = 1 or 3. When N = 5, we can see that the root’s left subtree and right subtree is 
+actually what we will get when N = 1 and N = 3.
+
+Hence, we can also generate all 5 full binary trees with 7 nodes using the trees that we have generated in the above graph.
+It seems like using recursion to solve this problem will be our best choice. Since we are being asked to design a method that always returns a list of possible full binary 
+trees with the given number of nodes, it means that we can recursively call the same method to help us generate our left subtree and right subtree.
+We will need to use a for loop to decide the size of our left subtree and right subtree. Note that the total nodes of the left subtree and right subtree will be n-1 because 
+we will have a root node to connect them.
+After we calling allPossibleFBT(i), it means we have found all the roots of the full binary trees with i nodes. Hence, these can all be the root of our left subtree. And the 
+same thing when we call allPossibleFBT(n-i), we also find all the possible roots of our right subtree.
