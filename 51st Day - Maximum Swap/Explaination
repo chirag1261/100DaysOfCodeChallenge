@@ -1,0 +1,15 @@
+To make the resulting number biggest after one swap, we have to find the leftmost (most significant) digit which can be swapped. We would only want to swap a digit if there is a digit to the right of it which is greater than it. Consider the following numbers:
+
+    987: any swap will make the number smaller than before as there is no such digit which has a larger digit on right
+    897: swap 8 and 9
+    6790: This case gives us some more insight into the solution. There are 2 digits greater than 6 on the right of it - 7 and 9. Clearly, a number starting with 9 is greater
+    than a number starting with 7. So we only want to swap the digit with the maximum number to its right. Hence, swap 6 and 9.
+    56949: Here, we have two option for swapping 5 with 9. The numbers will be 96549 and 96945. Clearly the latter number is bigger. This tells us that we want to swap digit 
+    5 with the least significant occurrence of digit 9.
+    9867: swap 6 and 7
+
+The number only has at most 8 digits, so there are only{}^{8}\text{C}_{2}​8​​C​2​​= 28 available swaps. We can easily brute force them all.We will store the candidates as 
+lists of length\text{len(num)}len(num). For each candidate swap with positions\text{(i, j)}(i, j), we swap the number and record if the 
+candidate is larger than the current answer, then swap back to restore the original number.
+
+The only detail is possibly to check that we didn't introduce a leading zero. We don't actually need to check it, because our original number doesn't have one.
