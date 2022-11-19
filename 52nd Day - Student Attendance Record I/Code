@@ -1,0 +1,28 @@
+class Solution {
+    public boolean checkRecord(String s) {
+        int countA=0;
+        int countL=0;
+        int maxL=0;
+        
+        for(char c: s.toCharArray())
+        {
+            if(c=='A')
+            countA++;
+            
+        }
+        for (char c: s.toCharArray())
+        {
+            if(c=='L')
+                countL++;
+            else
+            {
+                maxL=Math.max(maxL,countL);
+                countL=0;
+            }
+        }
+            maxL=Math.max(maxL,countL);
+            if(maxL<3 && countA<2)
+                return true;
+        return false;
+    }
+}
