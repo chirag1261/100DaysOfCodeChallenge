@@ -21,3 +21,12 @@ Algorithm
         If same_row == true:
             Push it to result
     Return result
+
+
+
+Time Complexity
+
+O(N) as we traverse through every character of every string in the array. N = sum of lengths of all strings.
+Space Complexity
+
+O(1) as we constant space in the memory irrespective of the memory.
