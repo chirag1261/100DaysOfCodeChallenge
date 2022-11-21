@@ -1,0 +1,23 @@
+Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+
+In the American keyboard:
+
+    the first row consists of the characters "qwertyuiop",
+    the second row consists of the characters "asdfghjkl", and
+    the third row consists of the characters "zxcvbnm"
+    
+    The approach is pretty straightforward. We can hash all the indices to their rows and check that every character for every string in the array has the same value hashed 
+    to it. But we need to hash for all 26 characters first in order to preprocess the hashing part. Based on that, we can store them in an array and return it.
+Algorithm
+
+    Create a HashMap<Character, Integer> rowId and an array result to store resultant strings
+    Initialize a boolean variable same_row = true to run checks on strings
+    Hash all the characters to their rows
+    For every string str in the array:
+        set same_row = true
+        For every character chr in the array starting from the second:
+            If the rowId[chr] is not equal to rowId[first_character]:
+                set same_row = false and jump to next string
+        If same_row == true:
+            Push it to result
+    Return result
