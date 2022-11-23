@@ -1,0 +1,34 @@
+The problem Minimum Absolute Difference in BST Leetcode Solution states that you are provided with a Binary Search Tree. And you are required to find the minimum absolute 
+difference in the entire BST. A BST or a Binary Search Tree is nothing but a tree with some nodes that follow a rule. the rule is that the left subtree of a node must contain 
+only the nodes that have a value less than the current node. Similarly, for the right subtree, the nodes must contain values greater than the current node. So, as usual, we 
+must first take a look at a few examples before jumping into the solution.
+Explanation: The difference between the nodes [1, 2], [2, 3], [3, 4], [4, 5] all have difference of 1. And all other pairs have a greater difference. Thus the answer is 1.
+
+Given the root of a Binary Search Tree (BST), return the minimum absolute difference between the values of any two different nodes in the tree.
+
+Brute Force Approach for Minimum Absolute Difference in BST Leetcode Solution
+
+The problem Minimum Absolute Difference in BST Leetcode Solution asked us to find the minimum difference between any two nodes in a given Binary Search Tree. So, one way to 
+find the answer is to pick any two vertices or nodes of the BST and calculate the difference. We will update the answer once we find a pair that has a lesser absolute 
+difference than the previous pair. Initially, we can use any two nodes, and at the end of the process. The answer will be stored in the respective variables. So, to simulate 
+this process, we will traverse the BST in an inorder manner and store it in a vector. Using two nested loops, we will keep on calculating the absolute difference between 
+every two vertices in the tree.
+
+ 
+
+Example 1:
+
+Input: root = [4,2,6,1,3]
+Output: 1
+
+Example 2:
+
+Input: root = [1,0,48,null,null,12,49]
+Output: 1
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [2, 104].
+    0 <= Node.val <= 105
