@@ -1,0 +1,36 @@
+class Solution {
+    public int getMinimumDifference(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int minDiff = Integer.MAX_VALUE;
+        
+        final Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        //Initialize: dive deep to left leaf
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
+        }
+
+        node = stack.peek();
+        TreeNode lastNode = node;
+        while (!stack.isEmpty()) {
+            // Mid: take mid, calculate diff based on lastNode
+            node = stack.pop();
+            if (node.val != lastNode.val) {
+                minDiff = Math.min(minDiff, Math.abs(node.val - lastNode.val));
+            }
+            lastNode = node;
+            // Right: stack right node, and attempt to all rightNode.left tll the leaf
+            if (node.right != null) {
+                node = node.right;
+                while (node != null) {
+                    stack.push(node);
+                    node = node.left;
+                }
+            }
+        }
+        return minDiff;
+    }
+}
