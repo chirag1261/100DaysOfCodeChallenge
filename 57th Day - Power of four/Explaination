@@ -1,0 +1,25 @@
+A number n is a power of 4 if the following conditions are met. 
+a) There is only one bit set in the binary representation of n (or n is a power of 2) 
+b) The count of zero bits before the (only) set bit is even.
+For example 16 (10000) is the power of 4 because there is only one bit set and count of 0s before the set bit is 4 which is even.
+
+Example 1:
+
+Input: n = 16
+Output: true
+
+Example 2:
+
+Input: n = 5
+Output: false
+
+Example 3:
+
+Input: n = 1
+Output: true
+
+ 
+
+Constraints:
+
+    -231 <= n <= 231 - 1
