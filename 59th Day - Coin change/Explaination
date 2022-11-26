@@ -1,0 +1,12 @@
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money. Return the fewest number of 
+coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1. You may assume that you have an infinite 
+number of each kind of coin.
+We have to find some subproblem that will help in solving coin-change problem. Given an amount n, we want to generate an exact change using the fewest number of coins of 
+denominations d1 < d2 < … < dm.
+
+Let Dp(n) represent the minimum number of coins required for a given amount n. Coins dj can be added to amount n - dj only if dj <= n and 0 <= j <= n -1 wher Dp(0) is 0.
+
+Let us proceed with following test case
+
+coins = [1, 2, 5]
+amount = 11
