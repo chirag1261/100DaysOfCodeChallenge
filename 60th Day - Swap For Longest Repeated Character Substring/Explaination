@@ -1,0 +1,35 @@
+Get The Index of Each Segment
+ * The idea is to keep track of all repeated character segments and see if the neighbor segments (segments separated by one other character) can be merged:
+ *  1. There exist a third segment with same character, swap a same character from a third segment. Merged length = len(segment1) + 1 + len(segment2)
+ *  2. There does not exist a third segment with same character, swap a character from the first character of the first segment,
+ *  or swapping the last character from the second segment, to the separating index. Merged length = len(segment1) + len(segment2)
+ *  Otherwise, if there are multiple segments of a character but they are not neighbor, we can only swap a character from one to the other.
+ *  New length = len(segment) + 1
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
+ 
+ Given a string text, we are allowed to swap two of the characters in the string.
+Find the length of the longest substring with repeated characters.
+Example 1:
+Input: text = "ababa"
+Output: 3
+Explanation: We can swap the first 'b' with the last 'a', or the last 'b' with the first 'a'.
+Then, the longest repeated character substring is "aaa", which its length is 3.
+Example 2:
+Input: text = "aaabaaa"
+Output: 6
+Explanation: Swap 'b' with the last 'a' (or the first 'a'), and we get longest repeated character substring "aaaaaa", which its length is 6.
+Example 3:
+Input: text = "aaabbaaa"
+Output: 4
+Example 4:
+Input: text = "aaaaa"
+Output: 5
+Explanation: No need to swap, longest repeated character substring is "aaaaa", length is 5.
+Example 5:
+Input: text = "abcdef"
+Output: 1
+Constraints:
+    1. 1 <= text.length <= 20000
+    2. text consist of lowercase English characters only.
