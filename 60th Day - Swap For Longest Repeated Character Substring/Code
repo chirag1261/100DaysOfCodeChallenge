@@ -1,0 +1,28 @@
+class Solution {
+    public int maxRepOpt1(String text) {
+        Map<Character, List<int[]>> map = new HashMap<>();
+        int left = 0, right = 0, ans = 0;
+        while (right < text.length()) {
+            while (right < text.length() && text.charAt(left) == text.charAt(right)) {
+                right++;
+            }
+            ans = Math.max(ans, right - left);
+            map.computeIfAbsent(text.charAt(left), x -> new ArrayList<>()).add(new int[]{left, right - 1});
+            left = right;
+        }
+
+        for (Map.Entry<Character, List<int[]>> entry : map.entrySet()) {
+            List<int[]> indexes = entry.getValue();
+            for (int i = 0; i < indexes.size() - 1; i++) {
+                int[] index1 = indexes.get(i), index2 = indexes.get(i + 1);
+                int len1 = index1[1] - index1[0] + 1, len2 = index2[1] - index2[0] + 1;
+                if (index1[1] + 1 == index2[0] - 1) {
+                    ans = Math.max(ans, (indexes.size() > 2 ? 1 : 0) + len1 + len2);
+                } else {
+                    ans = Math.max(ans, Math.max(len1, len2) + 1);
+                }
+            }
+        }
+        return ans;
+    }
+}
