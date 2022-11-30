@@ -1,0 +1,24 @@
+Given a 2D board and a word, find if the word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or vertically neighboring. The same letter cell may not
+be used more than once.
+
+For example, Given board =
+
+[ ["ABCE"], ["SFCS"], ["ADEE"] ] word = "ABCCED", -> returns true, word = "SEE", -> returns true, word = "ABCB", -> returns false.
+
+Approach:  We are going to solve this by using backtracking, in this approach first we will linearly search the entire matrix to find the first letters matching our given 
+string. If we found those letters then we can start backtracking in all four directions to find the rest of the letters of the given string.
+
+Step 1: Find the first character of the given string.
+
+Step 2: Start Backtracking in all four directions until we find all the letters of sequentially adjacent cells.
+
+Step 3: At the end, If we found our result then return true else return false.
+
+Edge cases: Now think about what will be our stopping condition, we can stop or return false if we reach the end of the boundaries of the matrix or the letter at which we are
+making recursive calls is not the required letter.
+We will also return if we found all the letters of the given word i.e. we found the number of letters equal to the length of the given word.
+NOTE: Do not forget that we cannot reuse a cell again.
+That is, we have to somehow keep track of our position so that we cannot find the same letter again and again.
+In this approach, we are going to mark visited cells with some random character that will prevent us from revisiting them again and again.
