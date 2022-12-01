@@ -1,0 +1,42 @@
+We just convert integer to string, then read each character and append it to the output string.
+But we quickly realize that if we do so we also have to handle signs.
+That's easy we can write code to take the first character as a substring from input and if it is a sign we can prepend to the reversed string. Of course, we have to parse the 
+to and from between integer and string
+
+input_x = 345 
+output_x = 543input_x = -345
+output_x = 543- // oops we need to handle sign as well .
+
+So, looks like we have a solution. But I forgot that reversed input can also fall outside of the range [-2³¹,2³¹-1], that case we need to handle, if reverse integer falls out of range [-2³¹, 2³¹-1], then we need a data type that can store bigger integer than 32 bit. I think a long data type can store that integer since it's 64 bit long.
+So, while parsing from reversed input string to long we will not get an exception for the reverse integer which falls out of the range [-2³¹, 2³¹-1].
+
+1: Get the sign of the input integer (if it is - integer) . We will append it to our result integer.
+2: convert integer input to long input 
+3: get the absolute value of long input ( avoiding - sign)
+4: get the string value of long input
+5: reverse the long input and get the reversed string input
+6: convert reversed string input to long input 
+7: check if the long input is greater than max val of 32-bit integer
+   if yes then return 0 else return integer value with sign 
+   
+   
+Example 1:
+
+Input: x = 123
+Output: 321
+
+Example 2:
+
+Input: x = -123
+Output: -321
+
+Example 3:
+
+Input: x = 120
+Output: 21
+
+ 
+
+Constraints:
+
+    -231 <= x <= 231 - 1
