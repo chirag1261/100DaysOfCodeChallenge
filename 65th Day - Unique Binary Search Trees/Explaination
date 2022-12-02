@@ -1,0 +1,52 @@
+Let count[i] be the number of unique binary search trees for i. The number of trees are determined by the number of subtrees which have different root node. For example,
+
+i=0, count[0]=1 //empty tree
+
+i=1, count[1]=1 //one tree
+
+i=2, count[2]=count[0]*count[1] // 0 is root
+            + count[1]*count[0] // 1 is root
+
+i=3, count[3]=count[0]*count[2] // 1 is root
+            + count[1]*count[1] // 2 is root
+            + count[2]*count[0] // 3 is root
+
+i=4, count[4]=count[0]*count[3] // 1 is root
+            + count[1]*count[2] // 2 is root
+            + count[2]*count[1] // 3 is root
+            + count[3]*count[0] // 4 is root
+..
+..
+..
+
+i=n, count[n] = sum(count[0..k]*count[k+1...n]) 0 <= k < n-1
+
+In this problem, we are asked to get the number of trees and not necessarily to return all trees, only the number. Here we can use the idea of dynamic programming, let dp[n]
+be the number of unique Binary Search Trees with n nodes. How can we evaluate them: we need to choose the number of nodes in the left subtree and the number of nodes in the 
+right subtree, for example n=5, then we have options:
+
+    The left subtree has 0 nodes, root = 1, and the right subtree has 4 nodes, a number of options f[0]*f[4]
+    The left subtree has 1 node, root = 2, and the right subtree has 3 nodes, a number of options f[1]*f[3]
+    The left subtree has 2 nodes, root = 3, and the right subtree has 2 nodes, number of options f[2]*f[2]
+    The left subtree has 3 nodes, root = 4, and the right subtree has 1 node, number of options f[3]*f[1]
+    The left subtree has 4 nodes, root = 5, and the right subtree has 0 nodes, number of options f[4]*f[0]
+
+So, in total f[5] = f[0]*f[4] + f[1]*f[3] + f[2]*f[2] + f[3]*f[1] + f[4]*f[0], and in general:
+f[n] = f[0]*f[n-1] + f[1]*f[n-2] + ... + f[n-2]*f[1] + f[n-1]*f[0].
+
+    In order to find Unique Binary Search Trees. we will use the concept of the Catalan numbers in this question we will use formulas like – C2 = C0*C1 + C1*C0.
+
+C3 = C0*C2 + C1*C1 + C2*C0.
+
+C4 = C0*C3 + C1*C2 + C2*C1 + C3*C0.
+
+    At last, we will return the C-th number. we will use the Catalan number in this question to find the unique number of BST. There are lots of applications for Catalan
+    numbers.
+
+APPROACH –
+
+    At first, we will create one array of length n+1 and initially, the value of the first index will be 1.
+    After that, we will run a loop from 1 to n+1 and within the loop, we will run a nested loop from 0 to i.
+    Within the loop, we will update the i-th position of the array by adding the multiplication of the respective index and at last, we will return the value of the nth index
+    of the array.
+    Hence we will find the Unique Binary Search Tree.
