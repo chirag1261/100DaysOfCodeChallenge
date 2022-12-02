@@ -1,0 +1,25 @@
+class Solution {
+   public int numTrees(int n) {
+        
+        int[][] memo = new int[n + 1][n + 1];
+        return numTrees(1, n, memo);
+    }
+    
+    private int numTrees(int start, int end, int[][] memo) {
+        
+        if (start >= end) {
+            return 1;
+        }        
+        if (memo[start][end] > 0) {
+            return memo[start][end];
+        }        
+        int countUnique = 0;        
+        for (int i = start; i <= end; i++) { // take i as root
+            countUnique += numTrees(start, i - 1, memo) * numTrees(i + 1, end, memo);
+        }        
+        memo[start][end] = countUnique;
+        
+        return countUnique;
+    }
+
+}
