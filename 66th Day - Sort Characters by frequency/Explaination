@@ -1,0 +1,48 @@
+Sort Characters By Frequency LeetCode Solution – Given a string S, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the
+number of times it appears in the string.
+
+Return the sorted string. If there are multiple answers, return any of them.
+
+i) For the first test case, ‘b’ has the highest frequency (3) followed by ‘d’ (2). ‘a’ and ‘c’ have the same frequency (1). So we can place them in any order. Hence both
+“bbbddac” and “bbbddca” are correct output.
+
+ii) For the second test case, ‘b’ has the highest frequency (2). ‘a’ and ‘A’ are 2 different characters and have the same frequency (1). So we can place them in any order. 
+Hence both “bbaA” and “bbAa” are correct output.
+
+Count the frequency of each character, and then sort the characters by frequency and out put the characters. We can use a two dimension array for the easy counting and sorting.
+We can either sort the map according to the frequency count and then for each key check its frequency value and append to the result string that many times.
+
+Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
+
+Return the sorted string. If there are multiple answers, return any of them.
+
+ 
+
+Example 1:
+
+Input: s = "tree"
+Output: "eert"
+Explanation: 'e' appears twice while 'r' and 't' both appear once.
+So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+Example 2:
+
+Input: s = "cccaaa"
+Output: "aaaccc"
+Explanation: Both 'c' and 'a' appear three times, so both "cccaaa" and "aaaccc" are valid answers.
+Note that "cacaca" is incorrect, as the same characters must be together.
+
+Example 3:
+
+Input: s = "Aabb"
+Output: "bbAa"
+Explanation: "bbaA" is also a valid answer, but "Aabb" is incorrect.
+Note that 'A' and 'a' are treated as two different characters.
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 5 * 105
+    s consists of uppercase and lowercase English letters and digits.
+
