@@ -1,0 +1,34 @@
+ Given the head of a singly linked list, sort the list using insertion sort, and return the sorted list's head.
+
+    The steps of the insertion sort algorithm:
+
+    Insertion sort iterates, consuming one input element each repetition and growing a sorted output list.
+
+    At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list and inserts it there.
+
+    It repeats until no input elements remain.
+
+    The following is a graphical example of the insertion sort algorithm. The partially sorted list (black) initially contains only the first element in the list. One element
+    (red) is removed from the input data and inserted in-place into the sorted list with each iteration.
+As mentioned previously, we want to insert a node after the last node in the sorted list that have a lower value than the node to insert. Hence, we can do it with a while
+loop, considering the case where we reach the end of the list:
+
+while (insertAfter.next != null && insertAfter.next.val < x) {
+  insertAfter = insertAfter.next;
+}
+
+Indeed, detecting the last node with lower value is equivalent to finding the first node with a higher value, but we need to keep a reference for the last node with a lower 
+value to do the insertion properly.
+
+    Given the head of a singly linked list, sort the list using insertion sort, and return the sorted list's head.
+
+    The steps of the insertion sort algorithm:
+
+    Insertion sort iterates, consuming one input element each repetition and growing a sorted output list.
+
+    At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list and inserts it there.
+
+    It repeats until no input elements remain.
+
+    The following is a graphical example of the insertion sort algorithm. The partially sorted list (black) initially contains only the first element in the list. One element
+    (red) is removed from the input data and inserted in-place into the sorted list with each iteration.
