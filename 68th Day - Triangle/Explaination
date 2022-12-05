@@ -1,0 +1,10 @@
+In this Leetcode Triangle problem solution, we have Given a triangle array, return the minimum path sum from top to bottom. For each step, you may move to an adjacent number
+of the row below. More formally, if you are on index I on the current row, you may move to either index i or index i + 1 on the next row.
+
+The triangle is very similar to a tree structure, where at each node, we can either travel left or right
+However, there is overlap of the subproblem, where the siblings share same leaf node, i.e. the left sibling and right sibling share their right leaf and left leaf 
+respectively
+From above observation, we can cache the result for each node
+The best route sum can be calculate from backward, where sum[i][j] equals math.min(sum[i + 1][j], sum[i + 1][j + 1]) + value[i][j]
+We can reduce the space usage to one dimensional array, since current sum depends on the row belowTime complexity O(n^2), where n is number of rows
+    Space complexity O(n)
