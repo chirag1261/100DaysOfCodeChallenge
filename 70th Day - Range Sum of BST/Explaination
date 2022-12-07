@@ -1,0 +1,29 @@
+In order to find the Range Sum of BST. First, we will focus on the node whose value lies in the range of low and high. So What we will do in this question is we will use
+pre-order traversal and make one variable total within the root condition we will check if node.val lies within the range then we add that value into the total and at last, 
+we will return the total.
+
+At first, we will make one variable and the value of that variable will be 0.
+After that, we will use pre-order traversal and within the root condition, we will if the root value lies within the range then simply add that value to the total and return 
+the Total.
+Hence, the Range Sum of BST will be calculated.
+TIME COMPLEXITY: O(N), As we have used pre-order traversal.
+
+SPACE COMPLEXITY: O(H), Due to recursion stack.
+Example 1:
+Input: root = [10,5,15,3,7,null,18], low = 7, high = 15
+Output: 32
+Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
+
+Example 2:
+Input: root = [10,5,15,3,7,13,18,1,null,6], low = 6, high = 10
+Output: 23
+Explanation: Nodes 6, 7, and 10 are in the range [6, 10]. 6 + 7 + 10 = 23.
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 2 * 104].
+    1 <= Node.val <= 105
+    1 <= low <= high <= 105
+    All Node.val are unique.
