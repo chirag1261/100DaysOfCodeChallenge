@@ -1,0 +1,35 @@
+In this Leetcode Reorder List problem solution, we have given the head of a singly linked list. The list can be represented as:
+
+L0 → L1 → … → Ln - 1 → Ln
+Reorder the list to be on the following form:
+L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+You may not modify the values in the list's nodes. Only nodes themselves may be changed.
+
+1) Initialize current node as head.
+2) While next of current node is not null, do following
+    a) Find the last node, remove it from the end and insert it as next
+       of the current node.
+    b) Move current to next to next of current
+
+The time complexity of the above simple solution is O(n2) where n is the number of nodes in the linked list.
+1) Find the middle point using tortoise and hare method.
+2) Split the linked list into two halves using found middle point in step 1.
+3) Reverse the second half.
+4) Do alternate merge of first and second halves.
+
+Example 1:
+
+Input: head = [1,2,3,4]
+Output: [1,4,2,3]
+
+Example 2:
+
+Input: head = [1,2,3,4,5]
+Output: [1,5,2,4,3]
+
+ 
+
+Constraints:
+
+    The number of nodes in the list is in the range [1, 5 * 104].
+    1 <= Node.val <= 1000
