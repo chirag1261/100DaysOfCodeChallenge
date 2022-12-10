@@ -1,0 +1,29 @@
+Problem:
+
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.  Iterative way:
+
+To find the maximum depth of the tree we can apply a simple recursive approach. Where each function call will represent a subtree which has root node called as ‘root’. We 
+traverse the tree by a recursive function starting from the root node.
+So the base case is when the subtree is empty i.e. root is NULL. So we return depth as 0.
+if root is not NULL, call the same function recursively for its left child and right child.
+As shown in figure, when the two child function return its depth we pick the maximum out of these two subtrees and return this value after adding 1 to it ( Adding current
+node which is the parent of the two subtrees).
+
+Example 1:
+
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+
+Example 2:
+
+Input: root = [1,null,2]
+Output: 2
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [0, 104].
+    -100 <= Node.val <= 100
