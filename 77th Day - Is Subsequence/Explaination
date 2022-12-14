@@ -1,0 +1,33 @@
+Given a string s and a string t, check if s is subsequence of t.
+
+You may assume that there is only lower case English letters in both s and t. t is potentially a very long (length ~= 500,000) string, and s is a short string (<=100).
+
+A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions 
+of the remaining characters. (ie, "ace" is a subsequence of "abcde" while "aec" is not).
+
+Example:
+
+s = "abc", t = "ahbgdc"
+Return true.
+
+s = "axc", t = "ahbgdc"
+Return false.
+
+Thought Process
+
+    Bucket and Binary Search
+        Using character buckets to store all the indices for its occurence
+        As we loop through each character of s, we do binary search on the buckets
+        If the return index is greater than or equal to the bucket length, that means we cannot find a valid index for current character
+        We save this index our key search for next character
+        Time complexity O(m + nlogm)
+        Space complexity O(m)
+    Two Pointers and Greedy
+        We main a pointer of i and j for s and t respectively
+        When we match a character from t, we move i pointer forward
+        If i is able to reach the end, we know s is subsequence of t
+        Time complexity O(m)
+        Space complexity O(1)
+    Build-int IndexOf function
+        Time complexity O(m)
+        Space complexity O(1)
