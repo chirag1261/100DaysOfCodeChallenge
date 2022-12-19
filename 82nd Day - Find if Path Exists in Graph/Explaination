@@ -1,0 +1,53 @@
+Problem Statement
+
+Find if Path Exists in Graph Leetcode Solution – There is a bi-directional graph with n vertices, where each vertex is labeled from 0 to n - 1 (inclusive). The edges in the graph are represented as a 2D integer array edges, where each edges[i] = [ui, vi] denotes a bi-directional edge between vertex ui and vertex vi. Every vertex pair is connected by at most one edge, and no vertex has an edge to itself.
+
+You want to determine if there is a valid path that exists from the vertex source to vertex destination.
+
+Given edges and the integers n, source, and destination, return true if there is a valid path from source to destination, or false otherwise.
+Example
+
+Find if Path Exists in Graph Leetcode Solution
+
+Input:
+
+ n = 3, edges = [[0,1],[1,2],[2,0]], source = 0, destination = 2
+
+Output:
+
+ true
+
+Explanation:
+
+ There are two paths from vertex 0 to vertex 2:
+- 0 → 1 → 2
+- 0 → 2
+
+Find if Path Exists in Graph Leetcode Solution
+
+Input:
+
+ n = 6, edges = [[0,1],[0,2],[3,5],[5,4],[4,3]], source = 0, destination = 5
+
+Output:
+
+ false
+
+Explanation:
+
+ There is no path from vertex 0 to vertex 5.
+
+Approach
+
+    This is the most basic problem for learning graph searching.
+    You can use either DFS or BFS. BFS is more suitable when you need the shortest path and it’s also more complex to code compared to DFS. So let’s use DFS for this problem
+    In DFS we traverse from a start node and go down as deep as possible until either we hit our target node or the end of the path.
+    For traversal, we need an adjacency list or matrix, the former being more space-efficient, so let’s use that. Used edges to build adjacency list.
+    Start searching from start node and stop when you hit end or have exhausted all paths and not found the target node
+    Maintain a visited node-set so that you don’t start traversing from the same node again
+
+Idea:
+
+The main idea is to use the DSU data structure to union the nodes and then we can easily find out whether the source or destination are connected or not by the find method of DSU.
+
+If the source and destination are connected their parents will be the same.
