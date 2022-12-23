@@ -1,0 +1,15 @@
+We have a new condition of buying and selling stock, this time, we need to take care of the cooldown time.
+
+We can still use dynamic programming to solve this problem since we need to decide today’s action depends on the actions in previous days.
+
+The easiest and the most straightforward way to solve this problem is using brute force. We use an array to store the max profit we can earn till Day i.
+
+On each day, we try to see which action we choose will help us gain the max profit: cooldown OR sell.
+The reason why we don’t consider buying today is that the profit will be lower if we choose to buy. We only decide the buying day once we decide the selling day.
+
+    If we choose to cool down today, that means no extra profit we can earn today. Hence, the max profit we can earn today is the same as yesterday.
+    If we choose to sell the stock today, then it’s time for us to decide the buying day. We need to traverse all the previous days to see when is our best day to buy the 
+    stock. Also, if we decide to buy on Day j and sell it today, we can also take the max profit we can earn two days before Day j.
+   The reason why it’s 2 days before Day j: if we choose to buy on Day j, that means Day (j-1) cannot be selling day nor buying day, it must be cooldown day. Hence, it is
+   safe to take the max profit we earn on two days before Day j since as long as we are sure Day (j-1) is cooldown day, we don’t need to worry or care about whether we sell 
+   or cooldown on Day (j-2).
