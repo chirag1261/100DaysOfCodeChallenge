@@ -1,0 +1,25 @@
+The problem Minimum Absolute Difference Leetcode Solution provides us an unsorted array or vector containing some integers. We are required to find out all the pairs that have
+a difference equal to that of minimum absolute difference. The minimum absolute difference is the minimum value of absolute difference that can be achieved by picking up any
+two different elements among all possible integers from the given vector or array. So, without diving deep into the solution let’s first take a look at a few examples.
+arr = [4,2,1,3]
+[[1,2],[2,3],[3,4]]
+
+Minimum Absolute Difference Leetcode Solution
+
+Explanation: Since there are only three such pairs with the minimum absolute difference. We return them as the answer to the problem. All three of them have the same 
+difference of 1. The difference of 1 is the least possible difference.
+arr = [1,3,6,10,15]
+[[1,3]]
+
+Explanation: Since the minimum absolute difference is equal to 2, and can be achieved only by a single pair of integers. This pair of integers is returned as the answer.
+
+
+Approach for Minimum Absolute Difference Leetcode Solution
+
+The problem Minimum Absolute Difference Leetcode Solution, asks us to find all the pairs of integers that have the difference between them equal to the minimum absolute 
+difference. We had already stated what is the minimum absolute difference. So, instead of looking at that let’s focus on how to solve the problem. So, first of all, we need 
+to find the minimum absolute difference. The minimum absolute difference can be found only between the adjacent elements when arranged in a sorted manner. The problem provided
+us with an unsorted array or vector. So, first, we sort the array. Then keep track of the adjacent differences and update the answer whenever we find a smaller difference.
+We also create an unordered set or hash set that stores the integers from the vector. Bow we just traverse over the array and try to find the number that has a difference 
+equal to the minimum absolute difference obtained, where the current element is the larger of the two. If we find such an element in our hash set, we add the pair in the 
+answers. but if we don’t, we simply move ahead.
