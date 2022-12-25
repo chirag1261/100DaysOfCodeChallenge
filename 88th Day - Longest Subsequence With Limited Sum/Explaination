@@ -1,0 +1,11 @@
+ The simplest approach to solve this problem is to traverse the array and generate all possible subsequence of the given array and calculate their sums. Print the longest
+ of all subsequences with maximum sum. 
+
+Time Complexity: O(N * 2N) 
+Auxiliary Space: O(N)
+
+Efficient Approach: The problem can be solved using Greedy technique. Follow the steps below to solve the problem:
+
+    Initialize a variable, say maxm, to store the largest element of the given array.
+    If maxm < 0, then print the value of maxm.
+    Otherwise, traverse the array and print all positive array elements.
