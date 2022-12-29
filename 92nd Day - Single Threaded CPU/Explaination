@@ -1,0 +1,8 @@
+Solution
+
+For each task, store its index as well. Then sort the tasks according to the enqueue times. Use a priority queue to store the tasks, where the task with the shortest 
+processing time and the smallest index in case of a tie is polled first.
+Loop over the sorted tasks. For each task, if the task’s enqueue time is before or the same as the current time, or the priority queue is empty, offer it to the priority
+queue. Otherwise, poll a task from the priority queue, put the task’s index to the result array, and update the current time accordingly.
+After the tasks are looped over, while the priority queue is not empty, poll the tasks from the priority queue, put the task’s index to the result array, and update the 
+current time accordingly.
