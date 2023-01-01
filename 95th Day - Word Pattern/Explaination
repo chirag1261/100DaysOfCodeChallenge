@@ -1,0 +1,33 @@
+Word Pattern LeetCode Solution – We are given 2 strings – “s” and “pattern”, we need to find if the pattern follows s. Follows here means full match. More formally, we can 
+for every pattern[i] there should only be one s[i] and vice versa i.e. there is a bijection between a letter in a pattern and a non-empty word in s.
+Examples and Explanation
+
+Example 1:
+Input: pattern = "abba", s = "dog cat cat dog"
+Output: true
+Explanation:
+a -> dog
+b -> cat
+
+Example 2:
+Input: pattern = "abba", s = "dog cat cat fish"
+Output: false
+Explanation:
+a -> dog
+b -> cat
+pattern[3] = a which corresponds to s[0], dog defined earlier, but s[3] has no dog
+
+Example 3:
+Input: pattern = "aaaa", s = "dog cat cat dog"
+Output: false
+Explanation:
+a -> dog
+Two different a are defined, i.e. dog and cat
+
+Approach
+
+We will map the words in s to their corresponding letters in the pattern. If pattern[i] already exists, then check if s[i] is equal to pattern[i]. To map pattern[i] and worlds
+in “s”, let’s use hashmaps.
+
+Since the words are given through a single string s, we can define another array of strings to store all the words for easy implementation. Iterate through the string s, if 
+there is space, push the word into our string array.
