@@ -1,31 +1,51 @@
-There are a number of spherical balloons spread in two-dimensional space. 
-For each balloon, provided input is the start and end coordinates of the horizontal diameter. 
-Since it's horizontal, y-coordinates don't matter and hence the x-coordinates of start and end of the diameter suffice. 
-Start is always smaller than end. There will be     at most 104 balloons.
-An arrow can be shot up exactly vertically from different points along the x-axis. 
-A balloon with xstart and xend bursts by an arrow shot at x if xstart ≤ x ≤ xend. 
-There is no limit to the number of arrows that can be shot. 
-An arrow once shot keeps travelling up infinitely. 
-The problem is to find the minimum number of arrows that must be shot to burst all balloons.
-Example:
-Input:
-[[10,16], [2,8], [1,6], [7,12]]
-Output:
-2
-Explanation:
-One way is to shoot one arrow for example at x = 6 (bursting the balloons [2,8] and [1,6]) and another arrow at x = 11 (bursting
+There are some spherical balloons spread in two-dimensional space. For each balloon, provided input is the start and end coordinates of the horizontal diameter. Since it's 
+horizontal, y-coordinates don't matter, and hence the x-coordinates of start and end of the diameter suffice. The start is always smaller than the end.
 
- * Approach: Greedy Algorithm (Use Sorting)
- * We know that eventually we have to shoot down every balloon,
- * so for each balloon there must be an arrow whose position is between balloon[0] and balloon[1].
- * Given that, we can sort the array of balloons by their ending position.
- * Then we make sure that while we take care of each balloon from the beginning, we can shoot as many following balloons as possible.
- *
- * So what position should we pick?
- * We should shoot as right as possible, because all balloons' end position is to the right of the current one.
- * Therefore the position should be currentBalloon[1], because we still need to shoot down the current one.
- *
- * This is exactly what should be done in the for loop:
- * check how many balloons I can shoot down with one shot aiming at the ending position of the current balloon. (balloon[0] <= arrowPos)
- * Then skip all these balloons and start again from the next one (or the leftmost remaining one) that needs another arrow.
- *
+An arrow can be shot up exactly vertically from different points along the x-axis. A balloon with xstart and xend bursts by an arrow shot at x if xstart ≤ x ≤ xend. There is
+no limit to the number of arrows that can be shot. An arrow once shot keeps traveling up infinitely.
+
+Given an array points where points[i] = [xstart, xend], return the minimum number of arrows that must be shot to burst all balloons.
+Input
+
+Input: points = [[10,16],[2,8],[1,6],[7,12]]
+Output: 2
+Explanation: One way is to shoot one arrow for example at x = 6 (bursting the balloons [2,8] and [1,6]) and another arrow at x = 11 (bursting the other two balloons).
+Example 2:
+
+Input: points = [[1,2],[3,4],[5,6],[7,8]]
+Output: 4
+Example 3:
+
+Input: points = [[1,2],[2,3],[3,4],[4,5]]
+Output: 2
+Example 4:
+
+Input: points = [[1,2]]
+Output: 1
+Example 5:
+
+Input: points = [[2,3],[2,3]]
+Output: 1
+
+IDEA
+
+We know the concept of merging two intervals. For merging two intervals, we need to first sort the intervals based on the first number from the number.
+for eg: [[x, y]], if we have such an interval we need to sort based on x.
+So in this problem we also we need to start with the same concept but a small change, here we need to sort based on the second number, ie say y.
+
+So lets make a common note here:
+For merge interval - sort based on first number
+For non overlapping interval - sort based on second number
+
+Now we have sorted and we need to find those values that is greater than a particular end.
+Here the problem says the arrow goes at a infinite distance from xStart to xEnd.
+So we need to find those points where start > end, if we find one then we can update end to the 2nd element of that particular element and increment the count.
+Finally returning the count given the minimum number of arrows to burst the balloons.
+
+Time Complexity: Here we are doing a sort and a one pass, so the complexity will be O(nlogn)
+ALGORITHM
+
+    Sort the intervals based on the second values of the given intervals.
+    Initialise a count and a possibleEnd. Here possibleEnd can be of type long initialised with the minimum value.
+    for int [] p: points -> Check whether the start, that is, p[0] > possibleEnd. If true then -> Update the end with p[1] and increment the count
+    Finally return this count to get the number of arrows required.
