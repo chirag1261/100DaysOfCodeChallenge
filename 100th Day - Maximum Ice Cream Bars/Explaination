@@ -1,0 +1,43 @@
+Example 1:
+
+Input: cost[] = {2,4,1,5,2,1}, X=10
+Output: 5
+Explanation: Alice will buy the ice creams from the indices (0,1,2,4,5) for a total price of 2+4+1+2+1=10.
+
+ 
+
+Example 2:
+
+Input cost[] = {8, 1, 2, 5, 4, 3}, X=13
+Output: 4
+Explanation: Alice will buy the ice creams from the indices (1, 2, 4, 5) for a total price of 1+2+4+3 = 10. 
+
+Approach
+
+Alice wants to purchase the maximum ice cream bars with X coins. So the idea is straightforward, We will start purchasing the ice cream bars from the lowest to highest price
+till the sum of the coins required to purchase the ice cream bars does not exceed X.
+
+To do this, we will sort the array in ascending order and start purchasing the bars one by one from the starting.
+
+Steps:
+
+    Declare an ans variable to store the count of maximum ice cream bars and initialise it with 0.
+    Sort the cost array, sort(cost, cost+n).
+    Traverse the array from the first element and subtract the current element's value from X.
+    Now check, if the value of X is greater than or equal to 0, increment the ans variable by 1.
+    Else break the loop and return the value of the ans.
+
+Let’s understand the above approach with an example:
+
+cost[] = {8, 1, 2, 5, 4, 3}, X=13
+
+Steps:
+
+    Sort the array, cost[] = {1, 2, 3, 4, 5, 8}
+    Run a for loop from i=0 to i<n.
+    i = 0, current element = 1, subtract the current element from X, X = 13-1 = 12, increment the ans by 1, ans = 1.
+    i = 1, current element = 2, subtract the current element from X, X = 12-2 = 10, increment the ans by 1, ans = 2.
+    i = 2, current element = 3, subtract the current element from X, X = 10-3 = 7, increment the ans by 1, ans = 3.
+    i = 3, current element = 4, subtract the current element from X, X = 7-4 = 3, increment the ans by 1, ans = 4.
+    i = 4, current element = 5, subtract the current element from X, X = 3-5 = -2.
+    Now, the value of X<0, break the loop and return the ans.
